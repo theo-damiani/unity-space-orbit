@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ee2cadbf2b428168df77d674de7b76, type: 3}
+  m_Name: DefaultAffordances
+  m_EditorClassIdentifier: 
+  showPlayButton: 1
+  showPauseButton: 1
+  showResetButton: 1
+  showTimeControl: 1
+  camera:
+    position:
+      X: 0
+      Y: 10
+      Z: -11
+    rotation:
+      X: 35
+      Y: 0
+      Z: 0
+    showCameraControl: 1
+    isLockedOnObject: 1
+  showReferenceFrame: 1
+  physicalObject:
+    isInteractiveUp: 1
+    isInteractiveDown: 1
+    isInteractiveRight: 1
+    isInteractiveLeft: 1
+    showTrace: 1
+    showTraceIsInteractive: 1
+    initialPosition:
+      X: 0
+      Y: 0
+      Z: 0
+    initialRotation:
+      X: 90
+      Y: 0
+      Z: 0
+    showVelocityVector: 1
+    initialVelocity:
+      X: 0
+      Y: 0
+      Z: 0
+    velocityVectorIsInteractive: 1
+    showVelocityLabel: 1
+    showVelocityEquation: 1
+  thrustForce:
+    isActive: 0
+    isInteractive: 1
+    showVector: 1
+    showLabel: 1
+    showEquation: 1
+    initialMagnitude: 3
+  showAsteroidButton: 1
+  asteroidCollisionForce: 2

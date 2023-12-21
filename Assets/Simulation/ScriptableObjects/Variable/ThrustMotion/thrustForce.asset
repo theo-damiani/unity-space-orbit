@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5879de1b102dc1c18e50cf3875e1cf7, type: 3}
+  m_Name: thrustForce
+  m_EditorClassIdentifier: 
+  DeveloperDescription: 
+  _value: {x: -0.54670686, y: 2.9497683, z: 0}
+  _readOnly: 0
+  _useDefaultValue: 0
+  _raiseWarning: 1
+  _isClamped: 0
+  _minClampedValue: {x: 0, y: 0, z: 0}
+  _maxClampedValue: {x: 0, y: 0, z: 0}
+  _defaultValue: {x: 0, y: 0, z: 0}
+  OnUpdateEvent: {fileID: 11400000, guid: 754a78afe3c7f1aaeb8c2b0ffb07ae6e, type: 2}
