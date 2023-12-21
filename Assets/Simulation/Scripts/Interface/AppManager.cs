@@ -49,7 +49,7 @@ public class AppManager : Singleton<AppManager>
     [Header("Central Force Variables")]
     [SerializeField] private BoolVariable centralForceIsActive;
     [SerializeField] private BoolVariable centralForceIsInteractive;
-    [SerializeField] private Vector3Variable centralForceCenter;
+    [SerializeField] private FloatVariable centralRadius;
     [SerializeField] private BoolVariable centralForceShowVector;
     [SerializeField] private GameObject centralForceShowLabel;
     [SerializeField] private BoolVariable centralForceShowEquation;
@@ -173,8 +173,8 @@ public class AppManager : Singleton<AppManager>
         centralForceIsActive.Value = false;
         centralForceShowVector.Value = true;
 
-        centralForceCenter.Value = Vector3.right * 5;
-        centralForceCenter.Value = Quaternion.Euler(currentAffordances.physicalObject.initialRotation.ToVector3()) * centralForceCenter.Value;
+        centralRadius.Value = 5;
+        // centralForceCenter.Value = Quaternion.Euler(currentAffordances.physicalObject.initialRotation.ToVector3()) * centralForceCenter.Value;
 
         centralForceShowEquation.Value = true;
         centralForceShowLabel.SetActive(true);

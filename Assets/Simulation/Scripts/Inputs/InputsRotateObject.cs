@@ -12,6 +12,7 @@ public class InputsRotateObject : MonoBehaviour
     [SerializeField] private Vector3 rotationLocalAxis;
     [SerializeField] private float rotationScale;
     [SerializeField] private List<Vector3Variable> vectors;
+    [SerializeField] private List<VectorLabel> labels;
     private Vector3 localRotationRight;
     private Vector3 localRotationUp;
 
@@ -44,25 +45,37 @@ public class InputsRotateObject : MonoBehaviour
     public void PressKeyUp()
     {
         if (isUpKeyActive.Value)
+        {
             RotateAll(localRotationUp);
+            UpdateLabels();
+        }
     }
 
     public void PressKeyDown()
     {
         if (isDownKeyActive.Value)
+        {
             RotateAll(-localRotationUp);
+            UpdateLabels();
+        }
     }
 
     public void PressKeyLeft()
     {
         if (isLeftKeyActive.Value)
+        {
             RotateAll(-localRotationRight);
+            UpdateLabels();
+        }
     }
 
     public void PressKeyRight()
     {
         if (isRightKeyActive.Value)
+        {
             RotateAll(localRotationRight);
+            UpdateLabels();
+        }
     }
 
     private void RotateAll(Vector3 rot)
@@ -72,6 +85,14 @@ public class InputsRotateObject : MonoBehaviour
         foreach (Vector3Variable v in vectors)
         {
             v.Value = Quaternion.Euler(worldRot*Time.deltaTime) * v.Value;
+        }
+    }
+
+    private void UpdateLabels()
+    {
+        foreach (VectorLabel l in labels)
+        {
+            l.UpdateSprite();
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class CentralAttractor : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField] private Vector3Reference relativePosToTarget;
+    [SerializeField] private FloatReference radiusLength;
     private LineRenderer lr;
 
     void Start()
@@ -27,7 +27,7 @@ public class CentralAttractor : MonoBehaviour
 
     public void SetAttractorPosition()
     {
-        transform.position = target.position + relativePosToTarget.Value;
+        transform.position = target.position + target.Find("RocketObject").transform.right*radiusLength.Value;
     }
 
     public void UpdateLineRenderer()
