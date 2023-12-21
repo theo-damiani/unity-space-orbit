@@ -29,8 +29,8 @@ MonoBehaviour:
     isLockedOnObject: 1
   showReferenceFrame: 1
   physicalObject:
-    isInteractiveUp: 1
-    isInteractiveDown: 1
+    isInteractiveUp: 0
+    isInteractiveDown: 0
     isInteractiveRight: 1
     isInteractiveLeft: 1
     showTrace: 1

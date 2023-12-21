@@ -8,7 +8,7 @@ public class UniformMotion : Motion
     public override void InitMotion(Rigidbody rigidbody)
     {
         // rigidbody.velocity = Vector3.zero;
-        rigidbody.AddForce(velocity.Value, ForceMode.VelocityChange);
+        //rigidbody.AddForce(velocity.Value, ForceMode.VelocityChange);
     }
 
     public override void ApplyMotion(Rigidbody rigidbody)

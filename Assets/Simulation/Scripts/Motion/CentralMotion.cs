@@ -5,11 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "centralMotion", menuName="Motion / Central Motion")]
 public class CentralMotion : Motion
 {
-    public Vector3Reference center;
+    public Vector3Reference relativeCenter;
     public FloatReference angularvelocity;
     [SerializeField] private Vector3Reference currentCentralForce;
+    private Vector3 center;
     public override void InitMotion(Rigidbody rigidbody)
     {
+        // Init center of attraction:
+        center = rigidbody.transform.position + relativeCenter.Value;
+
         // Cicular mode : 
         Vector3 projectedVelocity = ProjectVelocityAlongTangent(rigidbody);
         float radiusMagn = GetRadius(rigidbody.transform).magnitude;
@@ -73,7 +77,7 @@ public class CentralMotion : Motion
         Vector3 radius = GetRadius(rigidbody.transform);
         float velocitySign = Mathf.Sign(Vector3.Cross(rigidbody.velocity, radius).y);
 
-        Vector3 centerWithSameY = new Vector3(center.Value.x, rigidbody.transform.localPosition.y, center.Value.z);
+        Vector3 centerWithSameY = new Vector3(center.x, rigidbody.transform.localPosition.y, center.z);
         radius = Vector3.Project(radius, centerWithSameY - rigidbody.transform.localPosition);
         
         return velocitySign * rigidbody.velocity.magnitude / radius.magnitude;
@@ -81,7 +85,7 @@ public class CentralMotion : Motion
 
     private Vector3 GetRadius(Transform t)
     {
-        return center.Value - t.localPosition;
+        return center - t.localPosition;
     }
 
     public void SetVectorRepresentation(Vector3Reference vectorRef, Vector3 newComponents)

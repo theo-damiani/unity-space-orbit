@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-[ExecuteInEditMode, RequireComponent(typeof(TextMeshProUGUI))]
+[ExecuteInEditMode]
 public class Vector3Label : MonoBehaviour
 {
     [SerializeField] private Vector3Reference vector3Variable;

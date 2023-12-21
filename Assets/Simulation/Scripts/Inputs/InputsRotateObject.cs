@@ -8,10 +8,10 @@ public class InputsRotateObject : MonoBehaviour
     public BoolReference isDownKeyActive;
     public BoolReference isLeftKeyActive;
     public BoolReference isRightKeyActive;
-    [SerializeField] private List<Transform> transforms;
+    [SerializeField] private Transform transformToRotate;
     [SerializeField] private Vector3 rotationLocalAxis;
     [SerializeField] private float rotationScale;
-    [SerializeField] private Vector3Variable vector;
+    [SerializeField] private List<Vector3Variable> vectors;
     private Vector3 localRotationRight;
     private Vector3 localRotationUp;
 
@@ -67,11 +67,11 @@ public class InputsRotateObject : MonoBehaviour
 
     private void RotateAll(Vector3 rot)
     {
-        foreach (Transform t in transforms)
+        transformToRotate.Rotate(rot*Time.deltaTime);
+        Vector3 worldRot = transformToRotate.TransformVector(rot);
+        foreach (Vector3Variable v in vectors)
         {
-            t.Rotate(rot*Time.deltaTime);
-            Vector3 worldRot = t.TransformVector(rot);
-            vector.Value = Quaternion.Euler(worldRot*Time.deltaTime) * vector.Value;
+            v.Value = Quaternion.Euler(worldRot*Time.deltaTime) * v.Value;
         }
     }
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0ca38ae941ece09ae444316e3085f6, type: 3}
   m_Name: thrustMotion
   m_EditorClassIdentifier: 
-  velocity:
+  force:
     UseConstant: 0
-    ConstantValue: {x: 0, y: 0.1, z: 0}
+    ConstantValue: {x: 0, y: 0, z: 0}
     Variable: {fileID: 11400000, guid: 562ac29e7ea0695a0894db582ee533cc, type: 2}
   forceScale: 1

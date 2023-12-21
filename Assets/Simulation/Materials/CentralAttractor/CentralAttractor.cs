@@ -6,6 +6,7 @@ using UnityEngine;
 public class CentralAttractor : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    [SerializeField] private Vector3Reference relativePosToTarget;
     private LineRenderer lr;
 
     void Start()
@@ -18,13 +19,27 @@ public class CentralAttractor : MonoBehaviour
         UpdateLineRenderer();
     }
 
+    public void InitAttractor()
+    {
+        SetAttractorPosition();
+        UpdateLineRenderer();
+    }
+
+    public void SetAttractorPosition()
+    {
+        transform.position = target.position + relativePosToTarget.Value;
+    }
+
     public void UpdateLineRenderer()
     {
-        lr.positionCount = 2;
+        if (lr)
+        {
+            lr.positionCount = 2;
 
-        lr.SetPositions(new [] {
-            transform.position,
-            target.position
-        });
+            lr.SetPositions(new [] {
+                transform.position,
+                target.position
+            });
+        }
     }
 }

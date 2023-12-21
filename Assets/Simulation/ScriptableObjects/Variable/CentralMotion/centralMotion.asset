@@ -12,17 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7854933bc4474b529a4a11dc7210344, type: 3}
   m_Name: centralMotion
   m_EditorClassIdentifier: 
-  velocity:
-    UseConstant: 1
+  relativeCenter:
+    UseConstant: 0
     ConstantValue: {x: 0, y: 0, z: 0}
-    Variable: {fileID: 0}
-  center:
-    UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 99fb6bc55d6e89e6891b727c34983052, type: 2}
   angularvelocity:
     UseConstant: 1
-    ConstantValue: 1
+    ConstantValue: 0
     Variable: {fileID: 0}
   currentCentralForce:
     UseConstant: 0

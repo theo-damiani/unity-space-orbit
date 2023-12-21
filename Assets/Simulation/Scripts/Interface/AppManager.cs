@@ -46,6 +46,16 @@ public class AppManager : Singleton<AppManager>
     [SerializeField] private GameObject thrustShowLabel;
     [SerializeField] private BoolVariable thrustShowEquation;
 
+    [Header("Central Force Variables")]
+    [SerializeField] private BoolVariable centralForceIsActive;
+    [SerializeField] private BoolVariable centralForceIsInteractive;
+    [SerializeField] private Vector3Variable centralForceCenter;
+    [SerializeField] private BoolVariable centralForceShowVector;
+    [SerializeField] private GameObject centralForceShowLabel;
+    [SerializeField] private BoolVariable centralForceShowEquation;
+    [SerializeField] private ToggleIcons centralForceToggle;
+    [SerializeField] private CentralAttractor centralAttractor;
+
     [Header("Rocket Controls")]
     [SerializeField] private RectTransform keyUpBtn;
     [SerializeField] private RectTransform keyDownBtn;
@@ -158,6 +168,20 @@ public class AppManager : Singleton<AppManager>
         thrustShowEquation.Value = currentAffordances.thrustForce.showEquation;
         thrustShowLabel.SetActive(currentAffordances.thrustForce.showLabel);
         thrustIsInteractive.Value = currentAffordances.thrustForce.isInteractive;
+
+        // Central force config:
+        centralForceIsActive.Value = false;
+        centralForceShowVector.Value = true;
+
+        centralForceCenter.Value = Vector3.right * 5;
+        centralForceCenter.Value = Quaternion.Euler(currentAffordances.physicalObject.initialRotation.ToVector3()) * centralForceCenter.Value;
+
+        centralForceShowEquation.Value = true;
+        centralForceShowLabel.SetActive(true);
+        centralForceIsInteractive.Value = true;
+
+        centralAttractor.gameObject.SetActive(centralForceIsActive.Value);
+        centralForceToggle.SetToggle(centralForceIsActive.Value);
 
         // Camera:
         Vector3 cameraPos = currentAffordances.camera.position.ToVector3();
