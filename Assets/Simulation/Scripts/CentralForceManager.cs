@@ -19,12 +19,15 @@ public class CentralForceManager : MonoBehaviour
     private bool prevthrustSpaceManagerState = false;
     private bool prevvelocityVectorState = false;
 
-
-    public void SwitchControlsOff()
+    public void Start()
     {
         prevInputsRotateState = inputsRotate.enabled;
         prevthrustSpaceManagerState = thrustSpaceManager.enabled;
         prevvelocityVectorState = velocityVector.interactable;
+    }
+
+    public void SwitchControlsOff()
+    {
 
         LeftArrow.GetComponent<Button>().interactable = false;
         LeftArrow.GetComponent<KeyArrowPlayer>().enabled = false;

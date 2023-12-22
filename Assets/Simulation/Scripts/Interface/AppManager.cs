@@ -53,6 +53,7 @@ public class AppManager : Singleton<AppManager>
     [SerializeField] private BoolVariable centralForceShowEquation;
     [SerializeField] private ToggleIcons centralForceToggle;
     [SerializeField] private CentralAttractor centralAttractor;
+    [SerializeField] private CentralForceManager centralForceManager;
 
     [Header("Gravitational Force")]
     [SerializeField] private BoolVariable gravitationalForceIsActive;
@@ -156,35 +157,7 @@ public class AppManager : Singleton<AppManager>
             currentAffordances.centralForceisActive = true;
             currentAffordances.gravitationalForceIsActive = true;
         }
-
-        // Central force config:
-        centralForceIsActive.Value = currentAffordances.centralForceisActive;
-        centralForceShowVector.Value = currentAffordances.centralForceshowVector;
-
-        centralRadius.Value = currentAffordances.centralForceRadius;
-
-        centralForceShowEquation.Value = currentAffordances.centralForceshowEquation;
-        centralForceShowLabel.SetActive(currentAffordances.centralForceshowLabel);
-        centralForceIsInteractive.Value = currentAffordances.centralForceisInteractive;
-
-        centralAttractor.gameObject.SetActive(centralForceIsActive.Value);
-        centralForceToggle.SetToggle(centralForceIsActive.Value);
-        centralForceToggle.GetComponent<Button>().interactable = true;
-
-        // Gravitational force:
-
-        gravitationalAttractor.transform.position = Vector3.up*3;
-        celestialBodyPosition.Value = Vector3.up*3;
-
-        gravitationalForceIsActive.Value = currentAffordances.gravitationalForceIsActive;
-        gravitationalForceIsInteractive.Value = true;
-        gravitationalForceMagnitude.Value = 300f;
-
-        gravitationalAttractor.SetActive(gravitationalForceIsActive.Value);
         
-
-
-
         // Camera:
         Vector3 cameraPos = currentAffordances.camera.position.ToVector3();
         cameraLockingToggle.SetWithoutRaising(currentAffordances.camera.isLockedOnObject);
@@ -202,7 +175,7 @@ public class AppManager : Singleton<AppManager>
         mainCamera.transform.localRotation = Quaternion.Euler(currentAffordances.camera.rotation.ToVector3());
 
         cameraControls.gameObject.SetActive(currentAffordances.camera.showCameraControl);
-        
+
         // Extra:
         referenceFrame.SetActive(currentAffordances.showReferenceFrame);
 
@@ -232,5 +205,32 @@ public class AppManager : Singleton<AppManager>
         }
         velocityLabel.GetComponent<VectorLabel>().UpdateSprite();
         thrustShowLabel.GetComponent<VectorLabel>().UpdateSprite();
+
+        // Central force config:
+        centralForceIsActive.Value = currentAffordances.centralForceisActive;
+        centralForceShowVector.Value = currentAffordances.centralForceshowVector;
+
+        centralRadius.Value = currentAffordances.centralForceRadius;
+
+        centralForceShowEquation.Value = currentAffordances.centralForceshowEquation;
+        centralForceShowLabel.SetActive(currentAffordances.centralForceshowLabel);
+        centralForceIsInteractive.Value = currentAffordances.centralForceisInteractive;
+
+        centralAttractor.gameObject.SetActive(centralForceIsActive.Value);
+
+        centralForceManager.Start();
+        centralForceToggle.SetToggle(centralForceIsActive.Value);
+
+        centralForceToggle.GetComponent<Button>().interactable = true;
+
+        // Gravitational force:
+        gravitationalAttractor.transform.position = Vector3.up*3;
+        celestialBodyPosition.Value = Vector3.up*3;
+
+        gravitationalForceIsActive.Value = currentAffordances.gravitationalForceIsActive;
+        gravitationalForceIsInteractive.Value = true;
+        gravitationalForceMagnitude.Value = 300f;
+
+        gravitationalAttractor.SetActive(gravitationalForceIsActive.Value);
     }
 }
