@@ -9,8 +9,9 @@ public class BindVectorRotation : MonoBehaviour
 
     public void SetRotationFromTarget()
     {
-        Vector3 relativePos =  vector.Value - target.position;
-        vector.Value = Quaternion.LookRotation(relativePos, Vector3.up) * vector.Value;
+        float angle =  Vector3.Angle(target.up , vector.Value);
+
+        vector.Value = Quaternion.AngleAxis(angle, Vector3.up) * vector.Value;
     }
 
 }
