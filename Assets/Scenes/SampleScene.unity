@@ -562,6 +562,7 @@ MonoBehaviour:
     type: 2}
   gravForceToggle: {fileID: 1485299646}
   gravShowEquation: {fileID: 11400000, guid: 20930110ffeee8ec7a7c3a3bff9965c6, type: 2}
+  celestialBodyManager: {fileID: 1357494620}
   keyLeftBtn: {fileID: 7176590247586393683}
   keyRightBtn: {fileID: 7176590248680191253}
   keyBtnLayout: {fileID: 12023607}
@@ -1524,7 +1525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &276132234
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8855,7 +8856,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 0.627451, g: 0.41960785, b: 0.43509942, a: 1}
-    - _Color: {r: 0.35686272, g: 0.67058825, b: 0.945098, a: 1}
+    - _Color: {r: 0.62745106, g: 0.41960782, b: 0.4350994, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
@@ -9439,7 +9440,7 @@ GameObject:
   - component: {fileID: 919328360}
   - component: {fileID: 919328359}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: BlackHolePlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9651,7 +9652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &928279820
 Transform:
   m_ObjectHideFlags: 0
@@ -17156,6 +17157,9 @@ MonoBehaviour:
   mainCamera: {fileID: 330585545}
   planeCenter: {fileID: 928279820}
   centralForceButton: {fileID: 1301417677}
+  SunMat: {fileID: 2100000, guid: 1d2905744e82a4ad3bfc727aaa7ebc0c, type: 2}
+  BlackHoleMat: {fileID: 2100000, guid: c7903ce71fdf83a868acbb6689236d5f, type: 2}
+  BlackHoleDistorsion: {fileID: 919328357}
 --- !u!4 &1357494621
 Transform:
   m_ObjectHideFlags: 0
@@ -22554,7 +22558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.00
+  m_text: -282.81
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23127,7 +23131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.00
+  m_text: -341.16
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

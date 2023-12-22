@@ -63,6 +63,7 @@ public class AppManager : Singleton<AppManager>
     [SerializeField] private Vector3Variable celestialBodyPosition;
     [SerializeField] private ToggleIcons gravForceToggle;
     [SerializeField] private BoolVariable gravShowEquation;
+    [SerializeField] private CelestialBodyManager celestialBodyManager;
 
 
     [Header("Rocket Controls")]
@@ -172,16 +173,6 @@ public class AppManager : Singleton<AppManager>
 
         cameraControls.gameObject.SetActive(currentAffordances.camera.showCameraControl);
 
-        // Extra:
-        referenceFrame.SetActive(currentAffordances.showReferenceFrame);
-
-        equationsManager.Init();
-
-        inputsArrowManager.Start();
-
-        callOnSpaceEvent.Start();
-        callOnBackSpaceEvent.Start();
-
         // UI position
         bool rocketPanelActivation =
             currentAffordances.physicalObject.isInteractiveLeft ||
@@ -241,6 +232,17 @@ public class AppManager : Singleton<AppManager>
 
         gravShowEquation.Value = currentAffordances.gravitationalShowEquation;
 
+        celestialBodyManager.SetMaterial(currentAffordances.celestialBodyIsSun);
+
         circularBtnPanel.gameObject.SetActive(currentAffordances.centralForceisInteractive || currentAffordances.gravitationalForceIsInteractive);
+
+        // Extra:
+        referenceFrame.SetActive(currentAffordances.showReferenceFrame);
+
+        inputsArrowManager.Start();
+
+        callOnSpaceEvent.Start();
+        callOnBackSpaceEvent.Start();
+        equationsManager.Init();
     }
 }

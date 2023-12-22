@@ -20,6 +20,7 @@ public class GravitationalMotion : Motion
         Vector3 radius = GetRadius(rigidbody.transform);
         if (radius == Vector3.zero)
         {
+            SetVectorRepresentation(currentGravitationalForce, Vector3.zero);
             return;
         }
         float radiusSqr = GetRadius(rigidbody.transform).sqrMagnitude;
@@ -27,6 +28,7 @@ public class GravitationalMotion : Motion
         
         if (force < 0.01f)
         {
+            SetVectorRepresentation(currentGravitationalForce, Vector3.zero);
             return;
         }
         Vector3 forceVector = force*radius.normalized;

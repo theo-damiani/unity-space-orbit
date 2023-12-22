@@ -24,6 +24,7 @@ public class Affordances : ScriptableObject
     public A_Vector3 gravitationalBodyPositions;
     public float gravitationalForceMagnitude;
     public bool gravitationalShowEquation;
+    public bool celestialBodyIsSun;
 }
 
 [Serializable]

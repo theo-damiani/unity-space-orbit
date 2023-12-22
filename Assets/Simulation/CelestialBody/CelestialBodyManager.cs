@@ -11,6 +11,9 @@ public class CelestialBodyManager : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] Transform planeCenter;
     [SerializeField] Button centralForceButton;
+    [SerializeField] Material SunMat;
+    [SerializeField] Material BlackHoleMat;
+    [SerializeField] GameObject BlackHoleDistorsion;
     Plane dragPlane;
     bool isDragged;
 
@@ -85,6 +88,20 @@ public class CelestialBodyManager : MonoBehaviour
         if (isDragged)
         {
             SetPosition();
+        }
+    }
+
+    public void SetMaterial(bool isSun)
+    {
+        if (isSun)
+        {
+            celestialBody.GetComponent<MeshRenderer>().material = SunMat;
+            BlackHoleDistorsion.SetActive(false);
+        }
+        else
+        {
+            celestialBody.GetComponent<MeshRenderer>().material = BlackHoleMat;
+            BlackHoleDistorsion.SetActive(true);
         }
     }
 }
