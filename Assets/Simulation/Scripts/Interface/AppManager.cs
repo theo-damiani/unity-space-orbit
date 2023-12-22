@@ -27,8 +27,6 @@ public class AppManager : Singleton<AppManager>
 
     [Header("Rocket Variables")]
     [SerializeField] private GameObject rocket;
-    [SerializeField] private BoolVariable rocketIsInteractiveUp;
-    [SerializeField] private BoolVariable rocketIsInteractiveDown;
     [SerializeField] private BoolVariable rocketIsInteractiveLeft;
     [SerializeField] private BoolVariable rocketIsInteractiveRight;
     [SerializeField] private Vector3Variable rocketVelocity;
@@ -57,8 +55,6 @@ public class AppManager : Singleton<AppManager>
     [SerializeField] private CentralAttractor centralAttractor;
 
     [Header("Rocket Controls")]
-    [SerializeField] private RectTransform keyUpBtn;
-    [SerializeField] private RectTransform keyDownBtn;
     [SerializeField] private RectTransform keyLeftBtn;
     [SerializeField] private RectTransform keyRightBtn;
     [SerializeField] private VerticalLayoutGroup keyBtnLayout;
@@ -111,13 +107,9 @@ public class AppManager : Singleton<AppManager>
 
         velocityLabel.SetActive(currentAffordances.physicalObject.showVelocityLabel);
         showVelocityEquation.Value = currentAffordances.physicalObject.showVelocityEquation;
-        rocketIsInteractiveUp.Value = currentAffordances.physicalObject.isInteractiveUp;
-        rocketIsInteractiveDown.Value = currentAffordances.physicalObject.isInteractiveDown;
         rocketIsInteractiveRight.Value = currentAffordances.physicalObject.isInteractiveRight;
         rocketIsInteractiveLeft.Value = currentAffordances.physicalObject.isInteractiveLeft;
 
-        keyUpBtn.gameObject.SetActive(currentAffordances.physicalObject.isInteractiveUp);
-        keyDownBtn.gameObject.SetActive(currentAffordances.physicalObject.isInteractiveDown);
         keyLeftBtn.gameObject.SetActive(currentAffordances.physicalObject.isInteractiveLeft);
         keyRightBtn.gameObject.SetActive(currentAffordances.physicalObject.isInteractiveRight);
 
@@ -130,29 +122,10 @@ public class AppManager : Singleton<AppManager>
             keyLeftBtn.parent.gameObject.SetActive(false);
         }
 
-        if (currentAffordances.physicalObject.isInteractiveUp)
-        {
-            keyBtnLayout.padding.top = 0;
-        }
-        else
-        {
-            keyBtnLayout.padding.top = 10;
-        }
-
-        if (currentAffordances.physicalObject.isInteractiveDown)
-        {
-            keyBtnLayout.padding.bottom = 0;
-        }
-        else
-        {
-            keyBtnLayout.padding.bottom = 10;
-        }
-
-        bool rocketInputsActivation = currentAffordances.physicalObject.isInteractiveUp ||
-            currentAffordances.physicalObject.isInteractiveDown ||
+        bool rocketInputsActivation = 
             currentAffordances.physicalObject.isInteractiveLeft ||
             currentAffordances.physicalObject.isInteractiveRight;
-        keyUpBtn.parent.gameObject.SetActive(rocketInputsActivation);
+        keyLeftBtn.parent.gameObject.SetActive(rocketInputsActivation);
 
         // Path Renderer config:
         showRocketPath.Value = currentAffordances.physicalObject.showTrace;

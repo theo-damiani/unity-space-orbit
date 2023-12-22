@@ -8,10 +8,8 @@ public class CentralForceManager : MonoBehaviour
 {
     [SerializeField] private CentralAttractor attractor;
     [SerializeField] private Vector forceVector;
-    [SerializeField] private GameObject UpArrow;
     [SerializeField] private GameObject LeftArrow;
     [SerializeField] private GameObject RightArrow;
-    [SerializeField] private GameObject DownArrow;
     [SerializeField] private InputsRotateObject inputsRotate;
     [SerializeField] private GameObject thrustBtn;
     [SerializeField] private CallEvents thrustSpaceManager;
@@ -28,14 +26,10 @@ public class CentralForceManager : MonoBehaviour
         prevthrustSpaceManagerState = thrustSpaceManager.enabled;
         prevvelocityVectorState = velocityVector.interactable;
 
-        UpArrow.GetComponent<Button>().interactable = false;
-        UpArrow.GetComponent<KeyArrowPlayer>().enabled = false;
         LeftArrow.GetComponent<Button>().interactable = false;
         LeftArrow.GetComponent<KeyArrowPlayer>().enabled = false;
         RightArrow.GetComponent<Button>().interactable = false;
         RightArrow.GetComponent<KeyArrowPlayer>().enabled = false;
-        DownArrow.GetComponent<Button>().interactable = false;
-        DownArrow.GetComponent<KeyArrowPlayer>().enabled = false;
 
         inputsRotate.enabled = false;
 
@@ -54,14 +48,10 @@ public class CentralForceManager : MonoBehaviour
 
     public void SwitchControlsOn()
     {
-        UpArrow.GetComponent<Button>().interactable = true;
-        UpArrow.GetComponent<KeyArrowPlayer>().enabled = true;
         LeftArrow.GetComponent<Button>().interactable = true;
         LeftArrow.GetComponent<KeyArrowPlayer>().enabled = true;
         RightArrow.GetComponent<Button>().interactable = true;
         RightArrow.GetComponent<KeyArrowPlayer>().enabled = true;
-        DownArrow.GetComponent<Button>().interactable = true;
-        DownArrow.GetComponent<KeyArrowPlayer>().enabled = true;
 
         inputsRotate.enabled = prevInputsRotateState;
 

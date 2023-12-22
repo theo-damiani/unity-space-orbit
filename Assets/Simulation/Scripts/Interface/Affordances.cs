@@ -33,8 +33,6 @@ public class A_Camera
 [Serializable]
 public class A_PhysicalObject
 {
-    public bool isInteractiveUp;
-    public bool isInteractiveDown;
     public bool isInteractiveRight;
     public bool isInteractiveLeft;
     public bool showTrace;

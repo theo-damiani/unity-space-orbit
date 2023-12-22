@@ -27,12 +27,10 @@ MonoBehaviour:
       Z: 0
     showCameraControl: 1
     isLockedOnObject: 1
-  showReferenceFrame: 1
+  showReferenceFrame: 0
   physicalObject:
-    isInteractiveUp: 0
-    isInteractiveDown: 0
-    isInteractiveRight: 1
-    isInteractiveLeft: 1
+    isInteractiveRight: 0
+    isInteractiveLeft: 0
     showTrace: 1
     showTraceIsInteractive: 1
     initialPosition:
@@ -53,14 +51,14 @@ MonoBehaviour:
     showVelocityEquation: 1
   thrustForce:
     isActive: 0
-    isInteractive: 1
+    isInteractive: 0
     showVector: 1
     showLabel: 1
     showEquation: 1
     initialMagnitude: 3
-  centralForceisActive: 1
-  centralForceisInteractive: 0
+  centralForceisActive: 0
+  centralForceisInteractive: 1
   centralForceRadius: 5
-  centralForceshowVector: 0
+  centralForceshowVector: 1
   centralForceshowLabel: 0
   centralForceshowEquation: 0
