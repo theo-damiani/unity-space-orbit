@@ -29,8 +29,8 @@ MonoBehaviour:
     isLockedOnObject: 1
   showReferenceFrame: 0
   physicalObject:
-    isInteractiveRight: 0
-    isInteractiveLeft: 0
+    isInteractiveRight: 1
+    isInteractiveLeft: 1
     showTrace: 1
     showTraceIsInteractive: 1
     initialPosition:
@@ -51,7 +51,7 @@ MonoBehaviour:
     showVelocityEquation: 1
   thrustForce:
     isActive: 0
-    isInteractive: 0
+    isInteractive: 1
     showVector: 1
     showLabel: 1
     showEquation: 1

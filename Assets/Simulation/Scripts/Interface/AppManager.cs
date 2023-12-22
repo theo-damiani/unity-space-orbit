@@ -54,6 +54,13 @@ public class AppManager : Singleton<AppManager>
     [SerializeField] private ToggleIcons centralForceToggle;
     [SerializeField] private CentralAttractor centralAttractor;
 
+    [Header("Gravitational Force")]
+    [SerializeField] private BoolVariable gravitationalForceIsActive;
+    [SerializeField] private BoolVariable gravitationalForceIsInteractive;
+    [SerializeField] private FloatVariable gravitationalForceMagnitude;
+    [SerializeField] private GameObject gravitationalAttractor;
+    [SerializeField] private Vector3Variable celestialBodyPosition;
+
     [Header("Rocket Controls")]
     [SerializeField] private RectTransform keyLeftBtn;
     [SerializeField] private RectTransform keyRightBtn;
@@ -154,6 +161,21 @@ public class AppManager : Singleton<AppManager>
 
         centralAttractor.gameObject.SetActive(centralForceIsActive.Value);
         centralForceToggle.SetToggle(centralForceIsActive.Value);
+        centralForceToggle.GetComponent<Button>().interactable = true;
+
+        // Gravitational force:
+
+        gravitationalAttractor.transform.position = Vector3.up*3;
+        celestialBodyPosition.Value = Vector3.up*3;
+
+        gravitationalForceIsActive.Value = false;
+        gravitationalForceIsInteractive.Value = true;
+        gravitationalForceMagnitude.Value = 300f;
+
+        gravitationalAttractor.SetActive(gravitationalForceIsActive.Value);
+        
+
+
 
         // Camera:
         Vector3 cameraPos = currentAffordances.camera.position.ToVector3();
