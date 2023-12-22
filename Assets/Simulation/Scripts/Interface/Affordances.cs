@@ -19,6 +19,7 @@ public class Affordances : ScriptableObject
     public bool centralForceshowVector;
     public bool centralForceshowLabel;
     public bool centralForceshowEquation;
+    public bool gravitationalForceIsActive;
 }
 
 [Serializable]

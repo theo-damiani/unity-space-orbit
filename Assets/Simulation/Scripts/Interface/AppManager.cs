@@ -149,6 +149,14 @@ public class AppManager : Singleton<AppManager>
         thrustShowLabel.SetActive(currentAffordances.thrustForce.showLabel);
         thrustIsInteractive.Value = currentAffordances.thrustForce.isInteractive;
 
+        // Circular Force Activation
+        // Forbid both simultaneous:
+        if (currentAffordances.centralForceisActive && currentAffordances.gravitationalForceIsActive)
+        {
+            currentAffordances.centralForceisActive = true;
+            currentAffordances.gravitationalForceIsActive = true;
+        }
+
         // Central force config:
         centralForceIsActive.Value = currentAffordances.centralForceisActive;
         centralForceShowVector.Value = currentAffordances.centralForceshowVector;
@@ -168,7 +176,7 @@ public class AppManager : Singleton<AppManager>
         gravitationalAttractor.transform.position = Vector3.up*3;
         celestialBodyPosition.Value = Vector3.up*3;
 
-        gravitationalForceIsActive.Value = false;
+        gravitationalForceIsActive.Value = currentAffordances.gravitationalForceIsActive;
         gravitationalForceIsInteractive.Value = true;
         gravitationalForceMagnitude.Value = 300f;
 
