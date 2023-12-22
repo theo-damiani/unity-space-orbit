@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f8cf848d752cc258a376be305356ce, type: 3}
-  m_Name: gravIsInteractive
+  m_Script: {fileID: 11500000, guid: b5879de1b102dc1c18e50cf3875e1cf7, type: 3}
+  m_Name: gravVector
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  _value: 1
+  _value: {x: 5.6487803, y: 0.0000010611826, z: 11.670005}
   _readOnly: 0
   _useDefaultValue: 0
   _raiseWarning: 1
   _isClamped: 0
-  _minClampedValue: 0
-  _maxClampedValue: 0
-  _defaultValue: 0
-  OnUpdateEvent: {fileID: 11400000, guid: e1a08802565f74dc1a95d560e7a36c9b, type: 2}
+  _minClampedValue: {x: 0, y: 0, z: 0}
+  _maxClampedValue: {x: 0, y: 0, z: 0}
+  _defaultValue: {x: 0, y: 0, z: 0}
+  OnUpdateEvent: {fileID: 11400000, guid: 9c43b333b1b65c4a98a1d7a8fa316ac1, type: 2}

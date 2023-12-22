@@ -61,6 +61,9 @@ public class AppManager : Singleton<AppManager>
     [SerializeField] private FloatVariable gravitationalForceMagnitude;
     [SerializeField] private GameObject gravitationalAttractor;
     [SerializeField] private Vector3Variable celestialBodyPosition;
+    [SerializeField] private ToggleIcons gravForceToggle;
+    [SerializeField] private BoolVariable gravShowEquation;
+
 
     [Header("Rocket Controls")]
     [SerializeField] private RectTransform keyLeftBtn;
@@ -72,6 +75,7 @@ public class AppManager : Singleton<AppManager>
     [SerializeField] private LabelPositionManager equationsManager;
     [SerializeField] private InputsRotateObject inputsArrowManager;
     [SerializeField] private RectTransform rocketPanel;
+    [SerializeField] private RectTransform circularBtnPanel;
     [SerializeField] private CallEvents callOnSpaceEvent;
     [SerializeField] private CallEvents callOnBackSpaceEvent;
 
@@ -149,14 +153,6 @@ public class AppManager : Singleton<AppManager>
         thrustShowEquation.Value = currentAffordances.thrustForce.showEquation;
         thrustShowLabel.SetActive(currentAffordances.thrustForce.showLabel);
         thrustIsInteractive.Value = currentAffordances.thrustForce.isInteractive;
-
-        // Circular Force Activation
-        // Forbid both simultaneous:
-        if (currentAffordances.centralForceisActive && currentAffordances.gravitationalForceIsActive)
-        {
-            currentAffordances.centralForceisActive = true;
-            currentAffordances.gravitationalForceIsActive = true;
-        }
         
         // Camera:
         Vector3 cameraPos = currentAffordances.camera.position.ToVector3();
@@ -206,6 +202,14 @@ public class AppManager : Singleton<AppManager>
         velocityLabel.GetComponent<VectorLabel>().UpdateSprite();
         thrustShowLabel.GetComponent<VectorLabel>().UpdateSprite();
 
+        // Circular Force Activation
+        // Forbid both simultaneous:
+        if (currentAffordances.centralForceisActive && currentAffordances.gravitationalForceIsActive)
+        {
+            currentAffordances.centralForceisActive = true;
+            currentAffordances.gravitationalForceIsActive = true;
+        }
+
         // Central force config:
         centralForceIsActive.Value = currentAffordances.centralForceisActive;
         centralForceShowVector.Value = currentAffordances.centralForceshowVector;
@@ -224,13 +228,19 @@ public class AppManager : Singleton<AppManager>
         centralForceToggle.GetComponent<Button>().interactable = true;
 
         // Gravitational force:
-        gravitationalAttractor.transform.position = Vector3.up*3;
-        celestialBodyPosition.Value = Vector3.up*3;
+        gravitationalAttractor.transform.position = currentAffordances.gravitationalBodyPositions.ToVector3();
+        celestialBodyPosition.Value = currentAffordances.gravitationalBodyPositions.ToVector3();
 
         gravitationalForceIsActive.Value = currentAffordances.gravitationalForceIsActive;
-        gravitationalForceIsInteractive.Value = true;
-        gravitationalForceMagnitude.Value = 300f;
+        gravitationalForceIsInteractive.Value = currentAffordances.gravitationalForceIsInteractive;
+        gravitationalForceMagnitude.Value = currentAffordances.gravitationalForceMagnitude;
 
         gravitationalAttractor.SetActive(gravitationalForceIsActive.Value);
+
+        gravForceToggle.SetToggle(currentAffordances.gravitationalForceIsActive);
+
+        gravShowEquation.Value = currentAffordances.gravitationalShowEquation;
+
+        circularBtnPanel.gameObject.SetActive(currentAffordances.centralForceisInteractive || currentAffordances.gravitationalForceIsInteractive);
     }
 }

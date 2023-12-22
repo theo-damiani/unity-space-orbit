@@ -20,3 +20,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: {x: 0, y: 0, z: 0}
     Variable: {fileID: 11400000, guid: ab87e96b5675a58f3a82b40590d52f6e, type: 2}
+  currentGravitationalForce:
+    UseConstant: 0
+    ConstantValue: {x: 0, y: 0, z: 0}
+    Variable: {fileID: 11400000, guid: b42ae84bcc74f2024a7eaf282e522430, type: 2}

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CentralForceManager : MonoBehaviour
 {
     [SerializeField] private CentralAttractor attractor;
-    [SerializeField] private Vector forceVector;
+    [SerializeField] private GameObject attractorAnchor;
     [SerializeField] private GameObject LeftArrow;
     [SerializeField] private GameObject RightArrow;
     [SerializeField] private InputsRotateObject inputsRotate;
@@ -44,9 +44,7 @@ public class CentralForceManager : MonoBehaviour
 
         attractor.InitAttractor();
         attractor.gameObject.SetActive(true);
-        forceVector.components.Value = Vector3.zero;
-        forceVector.Redraw();
-        forceVector.gameObject.SetActive(true);
+        attractorAnchor.SetActive(true);
     }
 
     public void SwitchControlsOn()
@@ -65,6 +63,6 @@ public class CentralForceManager : MonoBehaviour
         velocityVector.SetInteractable(prevvelocityVectorState);
 
         attractor.gameObject.SetActive(false);
-        forceVector.gameObject.SetActive(false);
+        attractorAnchor.SetActive(false);
     }
 }

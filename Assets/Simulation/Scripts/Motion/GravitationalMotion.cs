@@ -8,6 +8,7 @@ public class GravitationalMotion : Motion
 {
     [SerializeField] private FloatReference strandardGravitationalParam; // mu = G * M = approx G(M+m) if m <<< M
     [SerializeField] private Vector3Reference attractorBodyPos;
+    [SerializeField] private Vector3Reference currentGravitationalForce;
 
     public override void InitMotion(Rigidbody rigidbody)
     {
@@ -28,7 +29,9 @@ public class GravitationalMotion : Motion
         {
             return;
         }
-        rigidbody.AddForce(force*radius.normalized, ForceMode.Acceleration);
+        Vector3 forceVector = force*radius.normalized;
+        rigidbody.AddForce(forceVector, ForceMode.Acceleration);
+        SetVectorRepresentation(currentGravitationalForce, forceVector);
     }
 
     private Vector3 GetRadius(Transform t)
