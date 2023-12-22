@@ -170,15 +170,14 @@ public class AppManager : Singleton<AppManager>
         thrustIsInteractive.Value = currentAffordances.thrustForce.isInteractive;
 
         // Central force config:
-        centralForceIsActive.Value = false;
-        centralForceShowVector.Value = true;
+        centralForceIsActive.Value = currentAffordances.centralForceisActive;
+        centralForceShowVector.Value = currentAffordances.centralForceshowVector;
 
-        centralRadius.Value = 5;
-        // centralForceCenter.Value = Quaternion.Euler(currentAffordances.physicalObject.initialRotation.ToVector3()) * centralForceCenter.Value;
+        centralRadius.Value = currentAffordances.centralForceRadius;
 
-        centralForceShowEquation.Value = true;
-        centralForceShowLabel.SetActive(true);
-        centralForceIsInteractive.Value = true;
+        centralForceShowEquation.Value = currentAffordances.centralForceshowEquation;
+        centralForceShowLabel.SetActive(currentAffordances.centralForceshowLabel);
+        centralForceIsInteractive.Value = currentAffordances.centralForceisInteractive;
 
         centralAttractor.gameObject.SetActive(centralForceIsActive.Value);
         centralForceToggle.SetToggle(centralForceIsActive.Value);
@@ -212,9 +211,7 @@ public class AppManager : Singleton<AppManager>
         callOnBackSpaceEvent.Start();
 
         // UI position
-        bool rocketPanelActivation = currentAffordances.showAsteroidButton ||
-            currentAffordances.physicalObject.isInteractiveUp ||
-            currentAffordances.physicalObject.isInteractiveDown ||
+        bool rocketPanelActivation =
             currentAffordances.physicalObject.isInteractiveLeft ||
             currentAffordances.physicalObject.isInteractiveRight ||
             currentAffordances.thrustForce.isInteractive;

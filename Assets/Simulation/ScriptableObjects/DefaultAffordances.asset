@@ -58,5 +58,9 @@ MonoBehaviour:
     showLabel: 1
     showEquation: 1
     initialMagnitude: 3
-  showAsteroidButton: 1
-  asteroidCollisionForce: 2
+  centralForceisActive: 1
+  centralForceisInteractive: 0
+  centralForceRadius: 5
+  centralForceshowVector: 0
+  centralForceshowLabel: 0
+  centralForceshowEquation: 0

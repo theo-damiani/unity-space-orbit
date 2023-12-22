@@ -929,6 +929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 594676971}
   vector: {fileID: 11400000, guid: 562ac29e7ea0695a0894db582ee533cc, type: 2}
+  label: {fileID: 1128224336}
 --- !u!1 &99024645
 GameObject:
   m_ObjectHideFlags: 0
@@ -15101,18 +15102,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2066112550}
-        m_TargetAssemblyTypeName: CentralAttractor, Assembly-CSharp
-        m_MethodName: InitAttractor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: aeb0986f7bf266d389fdaa313ad2c082, type: 2}
         m_TargetAssemblyTypeName: BaseVariable`1[[System.Boolean, mscorlib
         m_MethodName: set_Value
@@ -15167,18 +15156,6 @@ MonoBehaviour:
       - m_Target: {fileID: 91104757}
         m_TargetAssemblyTypeName: BindVectorRotation, Assembly-CSharp
         m_MethodName: SetRotationFromTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1128224336}
-        m_TargetAssemblyTypeName: VectorLabel, Assembly-CSharp
-        m_MethodName: UpdateSprite
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15297,6 +15274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167141d38b4f44d55b0d765a697a571f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attractor: {fileID: 2066112550}
+  forceVector: {fileID: 1453835926}
   UpArrow: {fileID: 7176590247406780522}
   LeftArrow: {fileID: 7176590247586393682}
   RightArrow: {fileID: 7176590248680191252}
@@ -17786,10 +17765,9 @@ MonoBehaviour:
   listConditions:
   - UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 84786b1a4579fc81fb0b732ed9006e8e, type: 2}
+    Variable: {fileID: 11400000, guid: 8a0b8ce11a6d8c9109788a898873c464, type: 2}
   listGameObject:
-  - {fileID: 1453835924}
-  - {fileID: 2066112545}
+  - {fileID: 1301417674}
 --- !u!1 &1945419002
 GameObject:
   m_ObjectHideFlags: 0
@@ -19554,7 +19532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1.60
+  m_text: 0.00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20127,7 +20105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3.16
+  m_text: 0.00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

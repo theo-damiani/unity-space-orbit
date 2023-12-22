@@ -13,8 +13,12 @@ public class Affordances : ScriptableObject
     public bool showReferenceFrame;
     public A_PhysicalObject physicalObject;
     public A_Force thrustForce;
-    public bool showAsteroidButton;
-    public float asteroidCollisionForce;
+    public bool centralForceisActive;
+    public bool centralForceisInteractive;
+    public float centralForceRadius;
+    public bool centralForceshowVector;
+    public bool centralForceshowLabel;
+    public bool centralForceshowEquation;
 }
 
 [Serializable]

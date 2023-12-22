@@ -15,10 +15,10 @@ public class CentralMotion : Motion
 
     public override void InitMotion(Rigidbody rigidbody)
     {
-
+        SetVectorRepresentation(currentCentralForce, Vector3.zero);
+        
         meshTransform = rigidbody.transform.Find("RocketObject").transform;
         // Init center of attraction:
-        //center = rigidbody.transform.position + relativeCenter.Value;
         center = rigidbody.transform.position + meshTransform.right*radiusLength.Value;
 
 
@@ -33,7 +33,6 @@ public class CentralMotion : Motion
         angularVelocity.Value = projectedVelocity.magnitude / radiusLength.Value;
 
         angularVector = (angularVelocity.Value * Vector3.Cross(projectedVelocity, radius)).normalized;
-        //rigidbody.velocity = Vector3.zero;
         rigidbody.velocity = projectedVelocity;
 
         // SetVectorRepresentation(currentCentralForce, Vector3.zero);
@@ -67,22 +66,12 @@ public class CentralMotion : Motion
 
     private void ApplyWithUnityPhysics(Rigidbody rigidbody)
     {
-        // Vector3 centripetalAcceleration = angularVelocity.Value * angularVelocity.Value * GetRadius(rigidbody.transform);
-        // SetVectorRepresentation(currentCentralForce, centripetalAcceleration);
-
-        // meshTransform.RotateAround(center, angularVector, Mathf.Rad2Deg * angularVelocity.Value*Time.fixedDeltaTime);
-
-
         // // Centripetal Force:
         Vector3 centripetalAcceleration = angularVelocity.Value * angularVelocity.Value * GetRadius(rigidbody.transform);
 
         rigidbody.AddForce(centripetalAcceleration, ForceMode.Acceleration);
         SetVectorRepresentation(currentCentralForce, centripetalAcceleration);
         meshTransform.Rotate(angularVector, Mathf.Rad2Deg * angularVelocity.Value*Time.fixedDeltaTime, Space.World);
-
-        // ============
-        // float signRot = Mathf.Sign(Vector3.SignedAngle(rigidbody.velocity, meshTransform.up, meshTransform.forward));
-        // meshTransform.localRotation *= Quaternion.Euler(Mathf.Rad2Deg * Time.fixedDeltaTime * meshTransform.InverseTransformVector(angularVelocity.Value * signRot * Vector3.up));
     }
 
     public Vector3 ProjectVelocityAlongTangent(Rigidbody rigidbody)
@@ -98,7 +87,7 @@ public class CentralMotion : Motion
         Vector3 radius = GetRadius(transform);
         Vector3 velocityDirectionInit = (Quaternion.Euler(0, -90, 0) * radius).normalized;
         Vector3 newVelocity = angularVelocity.Value*radius.magnitude*velocityDirectionInit;
-        // newVelocity.y = 0;
+
         return newVelocity;
     }
 

@@ -6,12 +6,14 @@ public class BindVectorRotation : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private Vector3Variable vector;
+    [SerializeField] private VectorLabel label;
 
     public void SetRotationFromTarget()
     {
-        float angle =  Vector3.Angle(target.up , vector.Value);
-
+        float angle =  Vector3.SignedAngle(vector.Value, target.up, Vector3.up);
         vector.Value = Quaternion.AngleAxis(angle, Vector3.up) * vector.Value;
+
+        label.UpdateSprite();
     }
 
 }

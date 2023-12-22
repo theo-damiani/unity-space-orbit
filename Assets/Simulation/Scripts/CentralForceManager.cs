@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CentralForceManager : MonoBehaviour
 {
+    [SerializeField] private CentralAttractor attractor;
+    [SerializeField] private Vector forceVector;
     [SerializeField] private GameObject UpArrow;
     [SerializeField] private GameObject LeftArrow;
     [SerializeField] private GameObject RightArrow;
@@ -42,6 +44,12 @@ public class CentralForceManager : MonoBehaviour
         thrustSpaceManager.enabled = false;
 
         velocityVector.SetInteractable(false);
+
+        attractor.InitAttractor();
+        attractor.gameObject.SetActive(true);
+        forceVector.components.Value = Vector3.zero;
+        forceVector.Redraw();
+        forceVector.gameObject.SetActive(true);
     }
 
     public void SwitchControlsOn()
@@ -62,5 +70,8 @@ public class CentralForceManager : MonoBehaviour
         thrustSpaceManager.enabled = prevthrustSpaceManagerState;
 
         velocityVector.SetInteractable(prevvelocityVectorState);
+
+        attractor.gameObject.SetActive(false);
+        forceVector.gameObject.SetActive(false);
     }
 }
