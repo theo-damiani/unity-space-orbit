@@ -18743,7 +18743,7 @@ MonoBehaviour:
   sprite: {fileID: 1032783719}
   offset: 0.5
   mainCamera: {fileID: 330585546}
-  vector3Variable: {fileID: 11400000, guid: 6d7e0886baada7544b9caaa0f2242f44, type: 2}
+  vector3Variable: {fileID: 11400000, guid: b42ae84bcc74f2024a7eaf282e522430, type: 2}
 --- !u!1 &1539926122
 GameObject:
   m_ObjectHideFlags: 0
@@ -22726,7 +22726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 22.68
+  m_text: 0.00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23299,7 +23299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -0.24
+  m_text: 0.00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
