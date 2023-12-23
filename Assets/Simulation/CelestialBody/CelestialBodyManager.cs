@@ -14,6 +14,7 @@ public class CelestialBodyManager : MonoBehaviour
     [SerializeField] Material SunMat;
     [SerializeField] Material BlackHoleMat;
     [SerializeField] GameObject BlackHoleDistorsion;
+    [SerializeField] ParticleSystem explosionEffect;
     Plane dragPlane;
     bool isDragged;
 
@@ -103,5 +104,11 @@ public class CelestialBodyManager : MonoBehaviour
             celestialBody.GetComponent<MeshRenderer>().material = BlackHoleMat;
             BlackHoleDistorsion.SetActive(true);
         }
+    }
+
+    public void PlayExplosion()
+    {
+        explosionEffect.transform.position = celestialBody.transform.position;
+        explosionEffect.Play();
     }
 }

@@ -9,6 +9,7 @@ public class GravitationalMotion : Motion
     [SerializeField] private FloatReference strandardGravitationalParam; // mu = G * M = approx G(M+m) if m <<< M
     [SerializeField] private Vector3Reference attractorBodyPos;
     [SerializeField] private Vector3Reference currentGravitationalForce;
+    [SerializeField] private GameEvent collisionWithCelestialBody;
 
     public override void InitMotion(Rigidbody rigidbody)
     {
@@ -18,12 +19,13 @@ public class GravitationalMotion : Motion
     public override void ApplyMotion(Rigidbody rigidbody)
     {
         Vector3 radius = GetRadius(rigidbody.transform);
-        if (radius == Vector3.zero)
+        float radiusSqr = radius.sqrMagnitude;
+        if (radiusSqr <= 0.5f)
         {
+            collisionWithCelestialBody.Raise();
             SetVectorRepresentation(currentGravitationalForce, Vector3.zero);
             return;
         }
-        float radiusSqr = GetRadius(rigidbody.transform).sqrMagnitude;
         float force = strandardGravitationalParam.Value/radiusSqr;
         
         if (force < 0.01f)

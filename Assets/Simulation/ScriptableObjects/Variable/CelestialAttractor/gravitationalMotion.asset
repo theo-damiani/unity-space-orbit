@@ -24,3 +24,5 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: {x: 0, y: 0, z: 0}
     Variable: {fileID: 11400000, guid: b42ae84bcc74f2024a7eaf282e522430, type: 2}
+  collisionWithCelestialBody: {fileID: 11400000, guid: 2620cb682f2a647e6921668f809225c7,
+    type: 2}

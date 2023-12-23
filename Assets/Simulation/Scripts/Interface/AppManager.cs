@@ -107,6 +107,7 @@ public class AppManager : Singleton<AppManager>
         resetButton.gameObject.SetActive(currentAffordances.showResetButton);
         isResetEnable.Value = currentAffordances.showResetButton;
         // Rocket config:
+        rocket.gameObject.SetActive(true);
         rocket.transform.SetPositionAndRotation(currentAffordances.physicalObject.initialPosition.ToVector3(), Quaternion.identity);
         rocket.transform.Find("RocketObject").transform.rotation = Quaternion.Euler(currentAffordances.physicalObject.initialRotation.ToVector3());
         rocketVelocity.Value = currentAffordances.physicalObject.initialVelocity.ToVector3();
