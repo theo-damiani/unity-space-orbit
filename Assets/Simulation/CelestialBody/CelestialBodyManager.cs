@@ -14,6 +14,7 @@ public class CelestialBodyManager : MonoBehaviour
     [SerializeField] Material SunMat;
     [SerializeField] Material BlackHoleMat;
     [SerializeField] GameObject BlackHoleDistorsion;
+    [SerializeField] GameObject OrbitalParticles;
     [SerializeField] ParticleSystem explosionEffect;
     Plane dragPlane;
     bool isDragged;
@@ -98,11 +99,13 @@ public class CelestialBodyManager : MonoBehaviour
         {
             celestialBody.GetComponent<MeshRenderer>().material = SunMat;
             BlackHoleDistorsion.SetActive(false);
+            OrbitalParticles.SetActive(false);
         }
         else
         {
             celestialBody.GetComponent<MeshRenderer>().material = BlackHoleMat;
             BlackHoleDistorsion.SetActive(true);
+            OrbitalParticles.SetActive(true);
         }
     }
 

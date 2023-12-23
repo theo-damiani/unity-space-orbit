@@ -44,8 +44,8 @@ public class PathRenderer : MonoBehaviour
         trailRenderer.sortingOrder = 1;
 
         isStartThrustIndicatorSet = false;
-        startThrustPoints = new List<GameObject>();
-        endThrustPoints = new List<GameObject>();
+        // startThrustPoints = new List<GameObject>();
+        // endThrustPoints = new List<GameObject>();
     }
 
     void Update()
@@ -65,22 +65,22 @@ public class PathRenderer : MonoBehaviour
             return;
         } 
 
-        if ((!isStartThrustIndicatorSet) && isThurstActive.Value)
-        {
-            GameObject startThurstPoint = Instantiate(startThrustIndicator);
-            startThurstPoint.transform.localPosition = transform.localPosition;
-            startThrustPoints.Add(startThurstPoint);
+        // if ((!isStartThrustIndicatorSet) && isThurstActive.Value)
+        // {
+        //     GameObject startThurstPoint = Instantiate(startThrustIndicator);
+        //     startThurstPoint.transform.localPosition = transform.localPosition;
+        //     startThrustPoints.Add(startThurstPoint);
 
-            isStartThrustIndicatorSet = true;
-        }
+        //     isStartThrustIndicatorSet = true;
+        // }
 
-        if (isStartThrustIndicatorSet && (!isThurstActive.Value))
-        {
-            GameObject endThurstPoint = Instantiate(endThrustIndicator);
-            endThurstPoint.transform.localPosition = transform.localPosition;
-            endThrustPoints.Add(endThurstPoint);
-            isStartThrustIndicatorSet = false;
-        }
+        // if (isStartThrustIndicatorSet && (!isThurstActive.Value))
+        // {
+        //     GameObject endThurstPoint = Instantiate(endThrustIndicator);
+        //     endThurstPoint.transform.localPosition = transform.localPosition;
+        //     endThrustPoints.Add(endThurstPoint);
+        //     isStartThrustIndicatorSet = false;
+        // }
     }
 
     public void OnUpdateShowPath()
