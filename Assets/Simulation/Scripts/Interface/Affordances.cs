@@ -23,6 +23,8 @@ public class Affordances : ScriptableObject
     public bool gravitationalForceIsInteractive;
     public A_Vector3 gravitationalBodyPositions;
     public float gravitationalForceMagnitude;
+    public bool gravitationalForceShowVector;
+    public bool gravitationalForceShowLabel;
     public bool gravitationalShowEquation;
     public bool celestialBodyIsSun;
 }

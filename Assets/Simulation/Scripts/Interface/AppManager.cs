@@ -65,6 +65,8 @@ public class AppManager : Singleton<AppManager>
     [SerializeField] private BoolVariable gravShowEquation;
     [SerializeField] private CelestialBodyManager celestialBodyManager;
     [SerializeField] private CustomSlider gravitationalSlider;
+    [SerializeField] private BoolVariable gravityShowVector;
+    [SerializeField] private GameObject gravityShowLabel;
 
 
     [Header("Rocket Controls")]
@@ -242,6 +244,9 @@ public class AppManager : Singleton<AppManager>
         gravBtnPanel.gameObject.SetActive(currentAffordances.gravitationalForceIsInteractive);
 
         gravitationalSlider.SetValueWithoutNotify(currentAffordances.gravitationalForceMagnitude);
+
+        gravityShowLabel.SetActive(currentAffordances.gravitationalForceShowLabel);
+        gravityShowVector.Value = currentAffordances.gravitationalForceShowVector;
 
         // Extra:
         referenceFrame.SetActive(currentAffordances.showReferenceFrame);
