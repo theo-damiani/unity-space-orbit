@@ -72,4 +72,4 @@ MonoBehaviour:
   gravitationalForceShowVector: 0
   gravitationalForceShowLabel: 0
   gravitationalShowEquation: 0
-  celestialBodyIsSun: 1
+  celestialBodyIsSun: 0
