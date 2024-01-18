@@ -202,8 +202,8 @@ public class AppManager : Singleton<AppManager>
         // Forbid both simultaneous:
         if (currentAffordances.centralForceisActive && currentAffordances.gravitationalForceIsActive)
         {
-            currentAffordances.centralForceisActive = true;
-            currentAffordances.gravitationalForceIsActive = true;
+            currentAffordances.centralForceisActive = false;
+            currentAffordances.gravitationalForceIsActive = false;
         }
 
         // Central force config:
@@ -221,7 +221,7 @@ public class AppManager : Singleton<AppManager>
         centralForceManager.Start();
         centralForceToggle.SetToggle(centralForceIsActive.Value);
 
-        centralForceToggle.GetComponent<Button>().interactable = true;
+        centralForceToggle.GetComponent<Button>().interactable = !currentAffordances.gravitationalForceIsActive;
 
         // Gravitational force:
         gravitationalAttractor.transform.position = currentAffordances.gravitationalBodyPositions.ToVector3();
@@ -243,7 +243,7 @@ public class AppManager : Singleton<AppManager>
 
         gravBtnPanel.gameObject.SetActive(currentAffordances.gravitationalForceIsInteractive);
 
-        gravitationalSlider.SetValueWithoutNotify(currentAffordances.gravitationalForceMagnitude);
+        gravitationalSlider.value = currentAffordances.gravitationalForceMagnitude;
 
         gravityShowLabel.SetActive(currentAffordances.gravitationalForceShowLabel);
         gravityShowVector.Value = currentAffordances.gravitationalForceShowVector;

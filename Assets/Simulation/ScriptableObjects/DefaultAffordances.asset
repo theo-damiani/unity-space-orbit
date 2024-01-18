@@ -56,7 +56,7 @@ MonoBehaviour:
     showLabel: 1
     showEquation: 0
     initialMagnitude: 3
-  centralForceisActive: 1
+  centralForceisActive: 0
   centralForceisInteractive: 1
   centralForceRadius: 5
   centralForceshowVector: 1
@@ -65,11 +65,11 @@ MonoBehaviour:
   gravitationalForceIsActive: 0
   gravitationalForceIsInteractive: 1
   gravitationalBodyPositions:
-    X: 0
+    X: 10
     Y: 0
     Z: 0
   gravitationalForceMagnitude: 250
   gravitationalForceShowVector: 0
   gravitationalForceShowLabel: 0
   gravitationalShowEquation: 0
-  celestialBodyIsSun: 0
+  celestialBodyIsSun: 1

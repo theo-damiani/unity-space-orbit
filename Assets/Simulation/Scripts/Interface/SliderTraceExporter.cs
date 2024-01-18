@@ -96,6 +96,10 @@ public class SliderTraceExporter : AnalyticsExporter
 
     private void AddTrace()
     {
+        if (listTimes.Count >= 1000)
+        {
+            return;
+        }
         listTimes.Add(Math.Round(Time.timeSinceLevelLoadAsDouble, 2));
         listExtras.Add(new ExtraSliderValue(slider.value));
     }
